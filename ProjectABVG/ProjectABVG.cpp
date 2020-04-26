@@ -1,10 +1,6 @@
 //*** HOTEL ***//
 
 
-// something something something
-
-
-
 #include <iostream>
 using namespace std;
 
@@ -126,9 +122,6 @@ bool showMainList(STAFF* employee, int& employeeCount, int& maxId/* int index, S
     cout << "9. Exit" << endl;
     cout << "Enter your choice:" << endl;
     cin >> choice;
-
-
-
 
     switch (choice)
     {
