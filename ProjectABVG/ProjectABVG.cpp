@@ -1,5 +1,10 @@
 //*** HOTEL ***//
 
+
+// something something something
+
+
+
 #include <iostream>
 using namespace std;
 
@@ -16,6 +21,7 @@ int generateId(int& maxId)
 {
     return maxId++;
 }
+  
 
 void insertStaff(STAFF employee[], int& employeeCount, int& maxId)
 {
