@@ -1,24 +1,28 @@
 //*** HOTEL ***//
 
 
+
 #include <iostream>
+
 using namespace std;
 
-struct STAFF {                                                            
-    string employeeName;                                                    
-    string employeePosition;                                                
-    int employeeSalary;                                                     
-    char employeePhone[14];                                                 
-    float monthlyIncome;                                                    
-    int id;                                                                 
+//Import stucture with name "STAFF" and in the structure we introducing variables
+struct STAFF {
+    string employeeName;
+    string employeePosition;
+    int employeeSalary;
+    char employeePhone[14];
+    float monthlyIncome;
+    int id;
 };
 
-int generateId(int& maxId)                                                  
+//function for generating ID which we need for the delete function
+int generateId(int& maxId)
 {
     return maxId++;
 }
-  
 
+//function about inserting people from the staff
 void insertStaff(STAFF employee[], int& employeeCount, int& maxId)
 {
     cout << "\nEnter the name of employee:" << endl;
@@ -36,7 +40,7 @@ void insertStaff(STAFF employee[], int& employeeCount, int& maxId)
 
 }
 
-void showStaff(STAFF employee)
+void showStaff(STAFF employee)//function which showing the staff
 {
     cout << "\nName of employee:" << employee.employeeName << endl;
     cout << "Position of employee:" << employee.employeePosition << endl;
@@ -45,7 +49,7 @@ void showStaff(STAFF employee)
     cout << endl;
 }
 
-void showAllStaff(STAFF employee[], int employeeCount)
+void showAllStaff(STAFF employee[], int employeeCount)//function which do the operation to show the staff
 {
     cout << "\nYou have entered the following employee:" << endl;
     for (int i = 0; i < employeeCount; i++)
@@ -54,6 +58,7 @@ void showAllStaff(STAFF employee[], int employeeCount)
     }
 }
 
+// in this function there is operation for to see which employees are with monthly income 
 void showEmployeeIncomeOver(STAFF* employee, int& employeeCount, int income)
 {
     for (int i = 0; i < employeeCount; i++)
@@ -65,6 +70,7 @@ void showEmployeeIncomeOver(STAFF* employee, int& employeeCount, int income)
     }
 }
 
+// this is the menu of the function with the operation for the monthly income
 void showEmployeeIncomeOverMenu(STAFF* employee, int& employeeCount)
 
 
@@ -76,8 +82,11 @@ void showEmployeeIncomeOverMenu(STAFF* employee, int& employeeCount)
     showEmployeeIncomeOver(employee, employeeCount, income);
 }
 
+//in this function we get the id for the employees
 int getEmployeeById(STAFF* employee, int& employeeCount, int id)
 {
+
+
 
     for (int i = 0; i < employeeCount; i++)
     {
@@ -89,6 +98,7 @@ int getEmployeeById(STAFF* employee, int& employeeCount, int id)
     return -1;
 }
 
+//in this function is the operation for the deleting someone from the staff
 void deleteEmployee(STAFF* employee, int& employeeCount, int id)
 {
     int index = getEmployeeById(employee, employeeCount, id);
@@ -103,6 +113,7 @@ void deleteEmployee(STAFF* employee, int& employeeCount, int id)
     employeeCount--;
 }
 
+//function for the menu of deleting someone from the staff
 void deleteEmployeeMenu(STAFF* employee, int& employeeCount, int& maxId)
 {
     int id;
@@ -111,6 +122,7 @@ void deleteEmployeeMenu(STAFF* employee, int& employeeCount, int& maxId)
     deleteEmployee(employee, employeeCount, id);
 }
 
+//function where are the menu for the whole program
 bool showMainList(STAFF* employee, int& employeeCount, int& maxId/* int index, STAFF newEmployee*/)
 {
     int choice;
@@ -119,7 +131,7 @@ bool showMainList(STAFF* employee, int& employeeCount, int& maxId/* int index, S
     cout << "2. Show staff" << endl;
     cout << "3. Delete someone of the staff" << endl;
     cout << "4. Show all employees with a monhtly income above the set" << endl;
-    cout << "9. Exit" << endl;
+    cout << "5. Exit" << endl;
     cout << "Enter your choice:" << endl;
     cin >> choice;
 
@@ -138,20 +150,29 @@ bool showMainList(STAFF* employee, int& employeeCount, int& maxId/* int index, S
     case 4:
         showEmployeeIncomeOverMenu(employee, employeeCount);
         break;
-    case 9:
+    case 5:
         return false;
     }
     return true;
 }
 
+//main function which calls the functions
 int main()
 {
     int employeeCount = 0;
     STAFF employee[10];
     int maxId = 0;
+    if (showMainList(employee, employeeCount, maxId) == false)
+    {
+        return 0;
+    }
     bool doShowMenu = true;
     do {
         showMainList(employee, employeeCount, maxId);
-
+        if (showMainList(employee, employeeCount, maxId) == false)
+        {
+            return 0;
+        }
     } while (doShowMenu);
+
 }
