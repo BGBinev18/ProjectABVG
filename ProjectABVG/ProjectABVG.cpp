@@ -29,9 +29,9 @@ void insertStaff(STAFF employee[], int& employeeCount, int& maxId)
     cin >> employee[employeeCount].employeeName;
     cout << "Enter position:" << endl;
     cin >> employee[employeeCount].employeePosition;
-    cout << "Enter the phone number:" << endl;
+    cout << "Enter phone number:" << endl;
     cin >> employee[employeeCount].employeePhone, 13;
-    cout << "Enter the salary in $:" << endl;
+    cout << "Enter salary in $:" << endl;
     cin >> employee[employeeCount].employeeSalary;
     cout << "Enter monthly income:" << endl;
     cin >> employee[employeeCount].monthlyIncome;
