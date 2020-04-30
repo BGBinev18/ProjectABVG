@@ -61,20 +61,23 @@ void showAllStaff(STAFF employee[], int employeeCount)//function which do the op
 // in this function there is operation for to see which employees are with monthly income 
 void showEmployeeIncomeOver(STAFF* employee, int& employeeCount, int income)
 {
+    int EmployeeIncomeOverCounter = 0;
     for (int i = 0; i < employeeCount; i++)
     {
         if (employee[i].monthlyIncome > income)
         {
             showStaff(employee[i]);
+            EmployeeIncomeOverCounter++;
         }
+    }
+    if (EmployeeIncomeOverCounter == 0)
+    {
+        cout << "\nSorry, there are not employees with monthly income which you entered!" << endl;
     }
 }
 
 // this is the menu of the function with the operation for the monthly income
 void showEmployeeIncomeOverMenu(STAFF* employee, int& employeeCount)
-
-
-
 {
     int income;
     cout << "Enter monthly income:";
@@ -126,7 +129,7 @@ void deleteEmployeeMenu(STAFF* employee, int& employeeCount, int& maxId)
 bool showMainList(STAFF* employee, int& employeeCount, int& maxId/* int index, STAFF newEmployee*/)
 {
     int choice;
-    cout << "Main List:" << endl;
+    cout << "\nMain List:" << endl;
     cout << "1. Add new person to the staff" << endl;
     cout << "2. Show staff" << endl;
     cout << "3. Delete someone of the staff" << endl;
