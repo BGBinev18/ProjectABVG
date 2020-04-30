@@ -25,7 +25,7 @@ int generateId(int& maxId)
 //function about inserting people from the staff
 void insertStaff(STAFF employee[], int& employeeCount, int& maxId)
 {
-    cout << "\nEnter the name of employee:" << endl;
+    cout << "\nEnter the first name of the employee:" << endl;
     cin >> employee[employeeCount].employeeName;
     cout << "Enter position:" << endl;
     cin >> employee[employeeCount].employeePosition;
@@ -141,14 +141,35 @@ bool showMainList(STAFF* employee, int& employeeCount, int& maxId/* int index, S
         insertStaff(employee, employeeCount, maxId);
         break;
     case 2:
-        showAllStaff(employee, employeeCount);
+        if (employeeCount==0)
+        {
+            cout << "Sorry there are not added employees! \nPlease choose option number 1 to add an employee!" << endl << endl;
+        }
+        else 
+        {
+            showAllStaff(employee, employeeCount);
+        }
         break;
     case 3:
-
-        deleteEmployeeMenu(employee, employeeCount, maxId);
+        if (employeeCount == 0)
+        {
+            cout << "Sorry there are not added employees! \nPlease choose option number 1 to add an employee!" << endl << endl;
+        }
+        else
+        {
+            deleteEmployeeMenu(employee, employeeCount, maxId);
+        }
         break;
     case 4:
-        showEmployeeIncomeOverMenu(employee, employeeCount);
+        if (employeeCount == 0)
+        {
+            cout << "Sorry there are not added employees! \nPlease choose option number 1 to add an employee!" << endl << endl;
+        }
+        else 
+        {
+            showEmployeeIncomeOverMenu(employee, employeeCount);
+        }
+        
         break;
     case 5:
         return false;
