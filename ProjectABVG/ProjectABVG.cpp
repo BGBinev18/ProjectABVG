@@ -42,9 +42,9 @@ void insertStaff(STAFF employee[], int& employeeCount, int& maxId)
 
 void showStaff(STAFF employee)//function which showing the staff
 {
-    cout << "\nName of employee:" << employee.employeeName << endl;
-    cout << "Position of employee:" << employee.employeePosition << endl;
-    cout << "Salary of employee:" << employee.employeeSalary << endl;
+    cout << "\nName of the employee:" << employee.employeeName << endl;
+    cout << "Position of the employee:" << employee.employeePosition << endl;
+    cout << "Salary of the employee:" << employee.employeeSalary << endl;
     cout << "Phone of the employee:" << employee.employeePhone << endl;
     cout << endl;
 }
